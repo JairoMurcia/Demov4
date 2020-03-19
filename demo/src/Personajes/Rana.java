@@ -67,7 +67,7 @@ public class Rana extends Enemigo{
         String aux = this.ruta + this.nombre + "/";
        
         if(this.accion.equals("atacar_parabolico") || this.accion.equals("atacar")){
-            aux+="pararse";
+            aux+="atacar";
         }else if(this.accion.equals("caminar_atacar")){
             aux+="saltar_atacar";
         }else if (this.accion.equals("escudarse")) {    

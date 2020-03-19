@@ -6,6 +6,7 @@
 package Personajes;
 
 import Logica.Estado_enemigo;
+import Logica.Normal;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +29,10 @@ public abstract class Enemigo implements Cloneable{
     protected int indice=0;
     protected int x, y,dx,dy;
     protected String accion;
+
+    public Estado_enemigo getE() {
+        return e;
+    }
     protected int rango;
     protected String [] tipos; 
     protected Estado_enemigo e;
@@ -123,14 +128,18 @@ public abstract class Enemigo implements Cloneable{
     protected abstract void asignar_rango();
     
     public void ia(Personaje p,ArrayList<Proyectil> pro){
-       if(p.y==this.y){
-           if(esta_indefenso(p,pro)){
+        
+        
+        if(esta_indefenso(p,pro) && p.getE() instanceof Normal){
+               
                this.accion="atacar";
-           }else{
+        }else if(p.getAccion().equals("atacar") || p.getAccion().equals("atacar_parabolico")){
                this.accion="escudarse";
               
-           }
-       }
+        }else{
+            this.accion="pararse";
+        }
+       
         this.asignarAccion();
     }
 
@@ -186,6 +195,8 @@ public abstract class Enemigo implements Cloneable{
         return false;
     }
     public abstract void asignarAccion();
-    
+    public boolean lanza(){
+        return this.indice==this.rango-1;
+    }
 }
 

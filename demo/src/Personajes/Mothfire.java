@@ -62,7 +62,9 @@ public class Mothfire extends Enemigo{
         String aux = this.ruta + this.nombre + "/";
         if(this.accion.equals("atacar_parabolico") || this.accion.equals("atacar")){
             aux+="atacar";
-        }else{    
+        }else if(this.accion.equals("escudarse")){    
+            aux+="escudarse";
+        }else{
             aux+="pararse";
         }
         aux += this.direccion.toLowerCase().charAt(0);

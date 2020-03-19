@@ -67,7 +67,8 @@ public class Controlador_botones implements ActionListener {
            s+="Solo se puede cambiar las accciones";
            s+="a personajes seleccionados los cuales tienen un recuadro gris atras.<br>";
            s+="Para seleccionar haga click sobre uno o seleccione varios dejando presionado y arrastrando el mouse<br>";
-           s+="se puede deselecionar haciendo click sobre la imagen otra vez</body></html>";
+           s+="se puede deselecionar haciendo click sobre la imagen otra vez";
+           s+="Si mientras los personajes estan atacando se puede cambiar el tipo de proyectil con 1 o 2</body></html>";
            JLabel l=new JLabel(s);
            f.add(l);
            f.setSize(300,280);

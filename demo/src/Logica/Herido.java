@@ -25,11 +25,12 @@ public class Herido extends Estado_enemigo{
     }
     public Herido(Enemigo e) {
         this.e=e;
+        this.mili=Hilo.get_delay();
     }
 
     @Override
     public BufferedImage getImagen() {
-        String aux = e.getRuta() + e.getNombre() + "/golpeado" + e.getDireccion().charAt(0) + ".png";
+        String aux = e.getRuta() + e.getNombre() + "/golpeado" + e.getDireccion().charAt(0) + "1.png";
         e.setX(e.getX() - e.getDx());
         tiempo += mili;
         actualizar();

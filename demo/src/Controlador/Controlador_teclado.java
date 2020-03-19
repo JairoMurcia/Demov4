@@ -52,7 +52,7 @@ public class Controlador_teclado implements KeyListener{
             this.h.cambiar_accion("escudarse");
         }
         if(ke.getKeyCode()==KeyEvent.VK_V){
-            this.h.cambiar_accion("parado");
+            this.h.cambiar_accion("pararse");
         }
         if(ke.getKeyCode()==KeyEvent.VK_LEFT){
             this.h.cambiar_dir("izquierda");

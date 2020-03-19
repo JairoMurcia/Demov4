@@ -80,7 +80,7 @@ public class Chuchu extends Enemigo{
     @Override
     public void asignarAccion(){
         String aux = this.ruta + this.nombre + "/";
-        System.out.println(this.accion);
+     
         if(this.accion.equals("atacar_parabolico") || this.accion.equals("atacar")){
             aux+="pararse";
         }else if(this.accion.equals("caminar_atacar")){
@@ -97,7 +97,7 @@ public class Chuchu extends Enemigo{
         
         for (int i = 0; i < rango; i++) {
             try {
-               
+                System.out.println(aux+(i+1)+".png");
                 this.imagenes[i] = ImageIO.read(new File(aux+(i+1)+".png"));
                 
                 

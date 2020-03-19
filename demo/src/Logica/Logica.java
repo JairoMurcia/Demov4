@@ -34,7 +34,8 @@ public class Logica {
     private ArrayList<Proyectil> pro = new ArrayList<>();
     private ArrayList<Piso> pisos=new ArrayList<>();
     private Rectangle r = null;
-    private String [] pro_ene={"chuchu","mothfire","rana"};
+    
+    private Mediator m=new Mediator();
     public void setT(String t) {
         this.t = t;
     }
@@ -107,16 +108,16 @@ public class Logica {
                 }
                 
             }
-            if(e.getAccion().equals("atacar")){
+            if(e.getAccion().equals("atacar") && e.lanza() ){
                 pro.add(consegir_proyectil(e,t));
-            }else if(e.getAccion().equals("atacar_parabolico")){
+            }else if(e.getAccion().equals("atacar_parabolico") && e.lanza()){
                 Proyectil p=consegir_proyectil(e,t);
                 pro.add(new Proyectil_parabolico(p.getX(),p.getY(),p));
             }
                 
         }
         
-        interseccion();
+        m.mediar(clones, pro, pe.getEnem(), l.getWidth(),tam);
         l.dibujar_personajes(clones, tam, tam, poblacion);
         l.dibujar_proyectiles(pro, tam1x, tam1y);
         l.dibujar_prototipo(prototipo, tam, tam);
@@ -317,20 +318,6 @@ public class Logica {
         
     }
     
-    private void interseccion(){
-        for(Personaje p:clones){
-            for(Proyectil pr:pro){
-                if( (pr.getX()>=p.getX() && pr.getX()<=p.getX()+tam) && (pr.getY()>=p.getY() && pr.getY()<=p.getY()+tam)){
-                    for(String s:pro_ene){
-                        if(s.equals(pr.getNombre()) && p.getE() instanceof Normal){
-                            p.setE(new Golpeado(p));
-                        }
-                    }
-                }
-                
-                
-            }
-        }
-    }
+    
     
 }
